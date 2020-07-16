@@ -80,4 +80,60 @@ const store = fooStore;
     console.log(r1,r2); // {a: "foo", b: "bar"} {a: "foo", b: "bar"}
 }
 
-/*****************************************************************************/
+/******************************************************************************* */
+
+// Using over.
+// It is possible to apply a function to the value of focus in a lens
+// Typically the value remains of the same type. The lens map operation is normally
+// called over in functional libs
+const over = (lens, f, store) => set(lens, f(view(lens, store)));
+
+const uppercase = x => x.toUpperCase();
+
+console.log(
+    over(aLens, uppercase, store)  // { a: "FOO" }
+);
+
+// Setters obey functor laws
+{
+    // If we map the indentity function
+    // over a store, it remains unchanged
+    const id = x => x;
+    const lens = aLens;
+    const a = over(lens, id, store);
+    const b = store;
+    console.log(a, b)
+}
+
+import { curry, compose } from 'ramda';
+{
+    const over = curry(
+        (lens, f, store) => set(lens, f(view(lens, store)), store)
+    );
+
+    {
+        // Function composition laws are still valid
+        // over(lens, f) after over(lens, g) is the same
+        // as over(lens, compose(f,g))
+        const store = {
+            a: 20,
+        };
+        const lens = aLens;
+        const g = n => n + 1;
+        const f = n => n * 2;
+
+        const a = compose(
+            over(lens, f),
+            over(lens, g),
+        );
+
+        const b = over(lens, compose(f, g));
+
+        console.log(
+            a(store), // {a: 42}
+            b(store), // {a: 42}
+        );
+
+    };
+
+}
