@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/kiily/js-fp-playground/issues"
   },
-  "homepage": "https://github.com/kiily/js-fp-playground#readme"
+  "homepage": "https://github.com/kiily/js-fp-playground#readme",
+  "dependencies": {
+    "ramda": "^0.27.0"
+  }
 }
