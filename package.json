@@ -1,0 +1,27 @@
+{
+  "name": "js-fp",
+  "version": "1.0.0",
+  "description": "Playground for functional javascript concepts and libraries",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kiily/js-fp-playground.git"
+  },
+  "keywords": [
+    "fp",
+    "functional",
+    "javascript",
+    "js",
+    "ramda",
+    "lodash"
+  ],
+  "author": "kiily",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiily/js-fp-playground/issues"
+  },
+  "homepage": "https://github.com/kiily/js-fp-playground#readme"
+}
