@@ -4,7 +4,8 @@
   "description": "Playground for functional javascript concepts and libraries",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/kiily/js-fp-playground#readme",
   "dependencies": {
-    "ramda": "^0.27.0"
+    "ramda": "^0.27.0",
+    "typescript": "^3.9.7"
   }
 }
